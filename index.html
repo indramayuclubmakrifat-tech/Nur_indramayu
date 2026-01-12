@@ -17,3 +17,20 @@ const NUR_BRAIN = {
 function activateEmergencySenses() {
     console.log("Nur: Mengaktifkan Saraf Cadangan Indramayu Club...");
 }
+/**
+ * FUNGSI PROSES LENCANA & KAS
+ * Berjalan berdasarkan perintah WhatsApp
+ */
+function prosesInstruksiAdmin(pesan) {
+  if (pesan.includes("lencana")) {
+    // Nur mencari ID member dan memberikan status 'Confirmed'
+    var idMember = pesan.match(/\d+/);
+    updateStatusMember(idMember, "Lencana Terpasang");
+    return "Lencana berhasil dipasang, Pak DulKohar!";
+  }
+  
+  if (pesan.includes("cek kas")) {
+    var total = hitungTotalKas();
+    return "Laporan Pak: Total dana kas saat ini adalah Rp " + total;
+  }
+}
